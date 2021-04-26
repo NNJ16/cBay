@@ -1,0 +1,76 @@
+form {
+    position: relative;
+    width: 22%;
+    margin: 40px auto 100px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+.reg-title{
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lobster', cursive;
+}
+.btnReg{
+    margin-top: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 7px;
+}
+.btnLog{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    width: 100%;
+    border-radius: 7px;
+}
+Label{
+    font-size: 12px;
+}
+.input{
+    margin-bottom: 0;
+}
+header {
+    background-color: #DDDDDD;
+    margin-top: auto;
+    padding: 16px 100px 32px;
+    font-family: 'Lobster', cursive;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+.brand{
+    text-align: left;
+}
+.drop{
+    text-align: right;
+    padding-top: 8px;
+    font-family: 'Roboto', sans-serif;
+}
+.searchbox{
+    padding-top: 8px;
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+}
+
+.btnSearch{
+    padding-top: 8px;
+    padding-left: 5px;
+    margin: 0px;
+}
+.btnS{
+    border-radius: 0;
+}
+.noPadding{
+    padding: 0;
+}
+.searchText{
+    width: 85%;
+    display: inline;
+    border-radius: 0;
+}
+.card{
+    margin: 1.5rem;
+}
+.itemList{
+    margin: auto 200px;
+}
