@@ -7,6 +7,22 @@ form {
     border-radius: 7px;
     box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
+.add-new-listening{
+    text-align: right;
+}
+
+.dashboard-header{
+    text-align: left;
+}
+.item-form{
+    position: relative;
+    width: 30%;
+    margin: 40px auto 100px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
 .reg-title{
     font-size: 2rem;
     text-align: center;
@@ -73,4 +89,15 @@ header {
 }
 .itemList{
     margin: auto 200px;
+}
+.itemTable{
+    width: 80%;
+    margin: 10px auto 100px;
+}
+.item-table-header{
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: gray;
 }

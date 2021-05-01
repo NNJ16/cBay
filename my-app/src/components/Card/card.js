@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function MediaCard() {
+export default function MediaCard(props) {
     const classes = useStyles();
 
     return (
@@ -33,17 +33,19 @@ export default function MediaCard() {
                 <CardMedia
                     component="img"
                     className={classes.media}
-                    image="https://mingo.lk/wp-content/uploads/2020/09/web-6.jpg"
+                    image= {props.imgURL}
                     height="200"
                     title="Contemplative Reptile"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
+                        {props.itemName}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
+                        {props.description}
+                    </Typography>
+                    <Typography variant="Body 2" color="textSecondary" component="h5">
+                        Price : LKR {props.price}
                     </Typography>
                 </CardContent>
             </CardActionArea>
