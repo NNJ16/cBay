@@ -28,17 +28,19 @@ const StyledTableRow = withStyles((theme) => ({
     },
 }))(TableRow);
 
-function createData(itemId, itemName, description, price) {
-    return {itemId, itemName, description, price};
+function createData(itemId, itemName,imgURL, description, price) {
+    return {itemId, itemName,imgURL, description, price};
 }
 
 const rows = [
     createData(10001,
         "Apple MacBook Air (M1, 2020)",
+        "",
         "CPU: Apple M1Graphics: Integrated 7-core /8-core GPURAM: 8GB – 16GB"
         , 240000.00),
     createData(10002,
         "Microsoft Surface Laptop 4 ",
+        "",
         "CPU: 11th-generation Intel Core i5 – i7 /AMD Ryzen 5 - 7Graphics: Intel Iris Xe / AMD RadeonRAM: 8GB – 32GB",
         220000.00)
 ];
@@ -52,6 +54,7 @@ const useStyles = makeStyles({
 const deleteItem= (id)=>{
     console.log("ID : "+id);
 }
+
 export default function CustomizedTables() {
     const history = useHistory();
     const classes = useStyles();
@@ -61,7 +64,7 @@ export default function CustomizedTables() {
             <div className="item-table-header">
                 <Row>
                     <Col className="dashboard-header">
-                        <h3>Manage active listings (18)</h3>
+                        <h3>Manage active listings ({rows.length})</h3>
                     </Col>
                     <Col className="add-new-listening">
                         <Button onClick={()=>{

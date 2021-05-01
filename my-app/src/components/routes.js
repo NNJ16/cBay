@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 import LoginForm from "../views/LoginForm";
 import RegisterForm from "../views/RegisterForm";
-import Home from "./Home/Home";
-import Dashboard from "./Dashboard/Dashboard";
-import AddItemForm from "./Dashboard/AddItem";
-import UpdateItemForm from "./Dashboard/UpdateItem";
+import Home from "../views/Home";
+import Dashboard from "../views/Dashboard";
+import AddItemForm from "./Seller/AddItem";
+import UpdateItemForm from "./Seller/UpdateItem";
 
 const hist = createBrowserHistory();
 

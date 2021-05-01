@@ -84,6 +84,10 @@ header {
     display: inline;
     border-radius: 0;
 }
+.cart{
+    display: inline;
+    color: red;
+}
 .card{
     margin: 1.5rem;
 }

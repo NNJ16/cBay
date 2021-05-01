@@ -6,7 +6,9 @@ import {Form, FormGroup, Label, Input, Button} from "reactstrap";
 const LoginForm = () => {
     const history = useHistory();
     const {register, handleSubmit} = useForm();
-    const handleRegistration = (data) => console.log(data);
+    const handleRegistration = (data) => {
+        localStorage.setItem("userType","user");
+    };
     const registerForm =()=>{
         history.push("/register");
     }

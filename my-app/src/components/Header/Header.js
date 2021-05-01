@@ -12,13 +12,14 @@ import {
     Button
 } from 'reactstrap';
 
+const userType = localStorage.getItem("userType");
+
 function handleChange(event) {
     const {name, value} = event.target;
-    console.log(value);
     event.preventDefault();
 }
 
-const Example = (props) => {
+const Header = (props) => {
     const [dropdownOpen, setOpen] = useState(false);
     const toggle = () => setOpen(!dropdownOpen);
     return (
@@ -38,16 +39,16 @@ const Example = (props) => {
                                            placeholder="Search for Anything..."/>
                                 </div>
                             </Col>
-                            <Col xs="2" className="noPadding">
+                            <Col xs="1" className="noPadding">
                                 <div className="btnSearch">
                                     <Button className="btnS" color="primary"><SearchIcon/></Button>
                                 </div>
                             </Col>
-                            <Col xs="2">
+                            <Col xs="3">
                                 <div className="drop">
                                     <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
                                         <DropdownToggle caret>
-                                            My cBay
+                                            My cBay {userType ==="user" ? <span>(0)</span> : null}
                                         </DropdownToggle>
                                         <DropdownMenu>
                                             <DropdownItem header>Header</DropdownItem>
@@ -64,4 +65,4 @@ const Example = (props) => {
     );
 };
 
-export default Example;
+export default Header;
