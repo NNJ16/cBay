@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import SearchIcon from '@material-ui/icons/Search';
+import Badge from '@material-ui/core/Badge';
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { withStyles } from '@material-ui/core/styles';
 import {
-    Container,
     Row,
     Col,
     ButtonDropdown,
@@ -11,6 +14,15 @@ import {
     Input,
     Button
 } from 'reactstrap';
+
+const StyledBadge = withStyles((theme) => ({
+    badge: {
+        right: -3,
+        top: 13,
+        border: `2px solid ${theme.palette.background.paper}`,
+        padding: '0 4px',
+    },
+}))(Badge);
 
 const userType = localStorage.getItem("userType");
 
@@ -48,13 +60,18 @@ const Header = (props) => {
                                 <div className="drop">
                                     <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
                                         <DropdownToggle caret>
-                                            My cBay {userType ==="user" ? <span>(0)</span> : null}
+                                            My cBay
                                         </DropdownToggle>
                                         <DropdownMenu>
                                             <DropdownItem header>Header</DropdownItem>
                                             <DropdownItem disabled>Action</DropdownItem>
                                         </DropdownMenu>
                                     </ButtonDropdown>
+                                    {userType ==="user" ? <IconButton aria-label="cart">
+                                        <StyledBadge badgeContent={4} color="secondary">
+                                            <ShoppingCartIcon />
+                                        </StyledBadge>
+                                    </IconButton> : null}
                                 </div>
                             </Col>
                         </Row>

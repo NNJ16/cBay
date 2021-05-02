@@ -32,15 +32,20 @@ let itemList = [
     }
 ];
 
+let cart =[];
+
+const addToCart=(item)=>{
+    cart.push(item);
+    console.log(cart);
+}
 export default function Home() {
     return (
         <div className="itemList">
             <Grid container spacing={1}>
                 {itemList.map((item) => (
                     <Grid container item xs={4}>
-
                         <Card key={item.itemID} itemName={item.itemName} description={item.description}
-                              imgURL={item.imgURL} price={item.price}
+                              imgURL={item.imgURL} price={item.price} addToCart={addToCart}
                         />
                     </Grid>
                 ))}

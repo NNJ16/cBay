@@ -4,9 +4,9 @@ import { createBrowserHistory } from "history";
 import LoginForm from "../views/LoginForm";
 import RegisterForm from "../views/RegisterForm";
 import Home from "../views/Home";
-import Dashboard from "../views/Dashboard";
-import AddItemForm from "./Seller/AddItem";
-import UpdateItemForm from "./Seller/UpdateItem";
+import Dashboard from "../views/Seller/Dashboard";
+import AddItemForm from "../views/Seller/AddItem";
+import UpdateItemForm from "../views/Seller/UpdateItem";
 
 const hist = createBrowserHistory();
 
