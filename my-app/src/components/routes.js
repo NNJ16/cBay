@@ -7,6 +7,7 @@ import Home from "../views/Home";
 import Dashboard from "../views/Seller/Dashboard";
 import AddItemForm from "../views/Seller/AddItem";
 import UpdateItemForm from "../views/Seller/UpdateItem";
+import ShoppingCart from '../views/ShoppingCart';
 
 const hist = createBrowserHistory();
 
@@ -17,6 +18,7 @@ const Routes = () => (
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/additem" component={AddItemForm} />
         <Route path="/updateitem" component={UpdateItemForm} />
+        <Route path="/cart" component={ShoppingCart} />
         <Route exact path="/" component={Home} />
     </Router>
 );
