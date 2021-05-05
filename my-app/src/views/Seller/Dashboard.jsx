@@ -12,7 +12,7 @@ import {Button, Col, Row} from "reactstrap";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-        backgroundColor: "grey",
+        backgroundColor: "#01406e",
         color: theme.palette.common.white,
     },
     body: {
@@ -80,6 +80,7 @@ export default function CustomizedTables() {
                         <TableRow>
                             <StyledTableCell>Item Name</StyledTableCell>
                             <StyledTableCell align="left">Item Description</StyledTableCell>
+
                             <StyledTableCell align="left">Price</StyledTableCell>
                             <StyledTableCell align="left">Actions</StyledTableCell>
                             <StyledTableCell align="right"></StyledTableCell>
@@ -92,6 +93,7 @@ export default function CustomizedTables() {
                                     {row.itemName}
                                 </StyledTableCell>
                                 <StyledTableCell align="left">{row.description}</StyledTableCell>
+
                                 <StyledTableCell align="left">{row.price}</StyledTableCell>
                                 <StyledTableCell align="left"><Button onClick={()=>{
                                     history.push({pathname:"/updateitem",state:{data:row}});
