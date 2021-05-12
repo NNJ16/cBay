@@ -2,18 +2,34 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import {Form, FormGroup, Label, Input, Button} from "reactstrap";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import API from "../../components/api";
 
 const AddItemForm = () => {
     const history = useHistory();
     const {register, handleSubmit} = useForm();
-    const handleRegistration = (data) => console.log(data);
+    const handleRegistration = (data) => {
+        API.post('/addItem', data)
+            .then(function (response) {
+                console.log(response);
+                viewDashboard();
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
 
-    const loginForm =()=>{
+    const loginForm = () => {
         history.push("/login");
     };
 
+    const viewDashboard = () =>{
+        history.push("/dashboard");
+    }
     return (
         <div>
+            <Header/>
             <div className="register">
                 <Form className="item-form" onSubmit={handleSubmit(handleRegistration)}>
                     <h1 className="reg-title">Add Item</h1>
@@ -35,9 +51,10 @@ const AddItemForm = () => {
                         <Input size="sm" type="text" name="price" {...register("price")}/>
                     </FormGroup>
                     <Button className="btnLog" color="primary">Add Item</Button>
-                    <Button size="sm" onClick={()=>loginForm()} className="btnReg" color="secondary">Back</Button>
+                    <Button size="sm" onClick={() => loginForm()} className="btnReg" color="secondary">Back</Button>
                 </Form>
             </div>
+            <Footer/>
         </div>
     );
 };

@@ -2,6 +2,8 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import {Form, FormGroup, Label, Input, Button} from "reactstrap";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 const RegisterForm = () => {
     const history = useHistory();
@@ -14,6 +16,7 @@ const RegisterForm = () => {
 
     return (
         <div>
+            <Header/>
             <div className="register">
                 <Form onSubmit={handleSubmit(handleRegistration)}>
                     <h1 className="reg-title">Register</h1>
@@ -34,6 +37,7 @@ const RegisterForm = () => {
                     <Button size="sm" onClick={()=>loginForm()} className="btnReg" color="secondary">Login</Button>
                 </Form>
             </div>
+            <Footer/>
         </div>
     );
 };

@@ -68,7 +68,7 @@ const Header = (props) => {
                                         </DropdownMenu>
                                     </ButtonDropdown>
                                     {userType ==="user" ? <IconButton aria-label="cart">
-                                        <StyledBadge badgeContent={4} color="secondary">
+                                        <StyledBadge badgeContent={props.count} color="secondary">
                                             <ShoppingCartIcon />
                                         </StyledBadge>
                                     </IconButton> : null}
