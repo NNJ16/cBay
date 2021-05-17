@@ -8,6 +8,8 @@ import Dashboard from "../views/Seller/Dashboard";
 import AddItemForm from "../views/Seller/AddItem";
 import UpdateItemForm from "../views/Seller/UpdateItem";
 import ShoppingCart from '../views/ShoppingCart';
+import CheckoutItem from '../views/CheckoutItem';
+import Orders from '../views/Orders';
 
 
 const hist = createBrowserHistory();
@@ -19,11 +21,10 @@ const Routes = () => (
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/additem" component={AddItemForm} />
         <Route path="/updateitem" component={UpdateItemForm} />
-        <Route path="/checkout" component={Checkout} />
-        <Route path="/addressform" component={AddressForm} />
-        <Route path="/review" component={Review} />
-        <Route path="/paymentform" component={PaymentForm} />
         <Route path="/cart" component={ShoppingCart} />
+        <Route path="/orders" component={Orders} />
+        <Route path="/checkoutItem" component={CheckoutItem} />
+      
 
         
         <Route exact path="/" component={Home} />

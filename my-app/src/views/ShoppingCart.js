@@ -192,7 +192,7 @@ const addToCart=(item)=>{
                     </Row>
                     <Col className="check-out">
                         <Button className="check-o" onClick={()=>{
-                            history.push("/checkout")
+                            history.push("/checkoutitem")
                         }}>Check out</Button>
                     </Col>
                 </Row>
@@ -216,5 +216,3 @@ const addToCart=(item)=>{
 }
  
 export default ShoppingCart;
-
-  
