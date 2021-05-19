@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import Badge from '@material-ui/core/Badge';
+import {useHistory} from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { withStyles } from '@material-ui/core/styles';
@@ -32,8 +33,23 @@ function handleChange(event) {
 }
 
 const Header = (props) => {
+    const history = useHistory();
     const [dropdownOpen, setOpen] = useState(false);
     const toggle = () => setOpen(!dropdownOpen);
+    const goToCart = () => {
+        if(props.cartItems){
+            localStorage.setItem("cart",props.cartItems);
+            console.log(props.cartItems);
+        }
+    }
+    const menuClick = ()=>{
+        console.log("Working....");
+    }
+    const signOut = ()=>{
+        localStorage.removeItem("userId");
+        localStorage.removeItem("userType");
+        history.push("/login");
+    }
     return (
         <div>
             <header>
@@ -62,12 +78,17 @@ const Header = (props) => {
                                         <DropdownToggle caret>
                                             My cBay
                                         </DropdownToggle>
-                                        <DropdownMenu>
-                                            <DropdownItem header>Header</DropdownItem>
-                                            <DropdownItem disabled>Action</DropdownItem>
-                                        </DropdownMenu>
+                                        {userType === "user" ? <DropdownMenu>
+                                            <DropdownItem onClick={menuClick}>My Orders</DropdownItem>
+                                            <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
+                                        </DropdownMenu> :  <DropdownMenu>
+                                            <DropdownItem>Dashboard</DropdownItem>
+                                            <DropdownItem>View Orders</DropdownItem>
+                                            <DropdownItem>View Home</DropdownItem>
+                                            <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
+                                        </DropdownMenu>}
                                     </ButtonDropdown>
-                                    {userType ==="user" ? <IconButton aria-label="cart">
+                                    {userType ==="user" ? <IconButton onClick={goToCart} aria-label="cart">
                                         <StyledBadge badgeContent={props.count} color="secondary">
                                             <ShoppingCartIcon />
                                         </StyledBadge>

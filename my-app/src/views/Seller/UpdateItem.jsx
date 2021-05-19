@@ -105,7 +105,7 @@ const UpdateItemForm = () => {
                     <hr/>
                     <FormGroup className="input">
                         <Label>Item ID :</Label>
-                        <Input size="sm" type="text" onChange={handleData} value={data.itemID} name="itemID"/>
+                        <Input size="sm" type="text" onChange={handleData} value={data.itemID} name="itemID" disabled/>
                     </FormGroup>
                     <FormGroup className="input">
                         <Label>Item Name :</Label>

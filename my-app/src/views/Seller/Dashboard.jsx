@@ -69,9 +69,6 @@ export default function CustomizedTables() {
             ]
         });
     };
-    const viewDashboard = () =>{
-        history.push("/dashboard");
-    }
 
     API.get("/items").then(res=>{
         let arr = res.data;

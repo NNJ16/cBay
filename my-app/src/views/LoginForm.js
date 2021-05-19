@@ -4,15 +4,36 @@ import { useHistory } from 'react-router-dom';
 import {Form, FormGroup, Label, Input, Button} from "reactstrap";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import API from "../components/api";
 
 const LoginForm = () => {
     const history = useHistory();
     const {register, handleSubmit} = useForm();
     const handleRegistration = (data) => {
-        localStorage.setItem("userType","user");
+        API.post("/login",data).then(res=>{
+            console.log(res.data);
+            if(res.data.length > 0){
+                const userId = res.data[0].userId;
+                const userType = res.data[0].type;
+                localStorage.setItem("userType",userType);
+                localStorage.setItem("userId",userId);
+                if(userType==="user"){
+                    viewHome();
+                }else{
+                    viewDashboard();
+                }
+            }
+        });
+
     };
     const registerForm =()=>{
         history.push("/register");
+    }
+    const viewHome =()=>{
+        history.push("/");
+    }
+    const viewDashboard =()=>{
+        history.push("/dashboard");
     }
     return (
         <div className="register">

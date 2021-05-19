@@ -2,21 +2,20 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import {Form, FormGroup, Label, Input, Button} from "reactstrap";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
-import API from "../components/api"
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import API from "../../components/api";
 
 const RegisterForm = () => {
     const history = useHistory();
     const {register, handleSubmit} = useForm();
-    const handleRegistration = (data) => {
-        const user ={
-            name : data.name,
-            email : data.email,
-            password: data.password,
-            phone: data.phone,
-            type:"user"
-        }
+    const handleRegistration = (data) => {const user ={
+        name : data.name,
+        email : data.email,
+        password: data.password,
+        phone: data.phone,
+        type:"seller"
+    }
         console.log(user);
         API.post('/addUser', user)
             .then(function (response) {
@@ -24,28 +23,25 @@ const RegisterForm = () => {
             })
             .catch(function (error) {
                 console.log(error);
-            });
-    };
+            });};
 
     const loginForm =()=>{
         history.push("/login");
     };
-    const sellerForm =()=>{
-        history.push("/sellregister");
-    };
+
     return (
         <div>
             <Header/>
             <div className="register">
                 <Form onSubmit={handleSubmit(handleRegistration)}>
-                    <h1 className="reg-title">Register</h1>
+                    <h1 className="reg-title">Seller Registration</h1>
                     <hr/>
                     <FormGroup className="input">
-                        <Label>Name :</Label>
+                        <Label>Seller Name :</Label>
                         <Input size="sm" name="name" {...register("name")} />
                     </FormGroup>
                     <FormGroup className="input">
-                        <Label>Email :</Label>
+                        <Label>Seller Email :</Label>
                         <Input size="sm" type="email" name="email" {...register("email")} />
                     </FormGroup>
                     <FormGroup className="input">
@@ -58,7 +54,6 @@ const RegisterForm = () => {
                     </FormGroup>
                     <Button className="btnLog" color="primary">Register</Button>
                     <Button size="sm" onClick={()=>loginForm()} className="btnReg" color="secondary">Login</Button>
-                    <Button size="sm" onClick={()=>sellerForm()}outline color="primary" className="btnReg">Become a seller</Button>
                 </Form>
             </div>
             <Footer/>

@@ -24,9 +24,6 @@ export default function Home() {
         });
     }
     useEffect(loadData,[]);
-    const removeCache= () =>{
-        dataList.splice(0, dataList.length);
-    }
 
     const [count,setCount] = useState(0);
     const addToCart=(item)=>{
@@ -35,7 +32,7 @@ export default function Home() {
     }
     return (
         <div>
-            <Header count={count}/>
+            <Header count={count} cartItems={cart}/>
             <div className="itemList">
                 <Grid container spacing={1}>
                     {itemList.map((item) => (
