@@ -31,7 +31,16 @@ const UpdateItemForm = () => {
         history.push("/dashboard");
     }
     const submitData = () => {
-        API.put('/updateItem', data)
+        const userId = localStorage.getItem("userId");
+        const item={
+            itemID : data.itemID,
+            itemName : data.itemName,
+            imgURL : data.imgURL,
+            description : data.description,
+            price:data.price,
+            userId : userId
+        }
+        API.put('/updateItem', item)
             .then(function (response) {
                 console.log(response);
                 viewDashboard();

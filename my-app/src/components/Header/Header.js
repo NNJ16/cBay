@@ -5,6 +5,7 @@ import {useHistory} from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { withStyles } from '@material-ui/core/styles';
+import API from "../api";
 import {
     Row,
     Col,
@@ -26,29 +27,58 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 
 const userType = localStorage.getItem("userType");
+let itemName = "";
 
 function handleChange(event) {
     const {name, value} = event.target;
-    event.preventDefault();
+    itemName = value;
 }
 
 const Header = (props) => {
     const history = useHistory();
     const [dropdownOpen, setOpen] = useState(false);
     const toggle = () => setOpen(!dropdownOpen);
+
     const goToCart = () => {
         if(props.cartItems){
             localStorage.setItem("cart",props.cartItems);
             console.log(props.cartItems);
         }
     }
-    const menuClick = ()=>{
+    const myOrders = ()=>{
         console.log("Working....");
+    }
+    const vieDashboard = ()=>{
+        history.push("/dashboard");
+        window.location.reload();
+    }
+    const viewHome = ()=>{
+        history.push("/");
+        window.location.reload();
+    }
+    const searchItems= () => {
+        if(itemName){
+            if(props.findItems){
+                props.findItems(itemName);
+            }
+        }
     }
     const signOut = ()=>{
         localStorage.removeItem("userId");
         localStorage.removeItem("userType");
         history.push("/login");
+        window.location.reload();
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    const sendmail=()=>{
+        API.post("/mail",{tomail:"nethsera@gmail.com"}).then((response)=>{
+            if (response.data.msg === 'success'){
+                alert("Email sent, awesome!");
+
+            }else if(response.data.msg === 'fail'){
+                alert("Oops, something went wrong. Try again")
+            }
+        })
     }
     return (
         <div>
@@ -69,7 +99,7 @@ const Header = (props) => {
                             </Col>
                             <Col xs="1" className="noPadding">
                                 <div className="btnSearch">
-                                    <Button className="btnS" color="primary"><SearchIcon/></Button>
+                                    <Button className="btnS" color="primary" onClick={searchItems}><SearchIcon/></Button>
                                 </div>
                             </Col>
                             <Col xs="3">
@@ -79,12 +109,11 @@ const Header = (props) => {
                                             My cBay
                                         </DropdownToggle>
                                         {userType === "user" ? <DropdownMenu>
-                                            <DropdownItem onClick={menuClick}>My Orders</DropdownItem>
+                                            <DropdownItem onClick={sendmail}>My Orders</DropdownItem>
                                             <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
                                         </DropdownMenu> :  <DropdownMenu>
-                                            <DropdownItem>Dashboard</DropdownItem>
-                                            <DropdownItem>View Orders</DropdownItem>
-                                            <DropdownItem>View Home</DropdownItem>
+                                            <DropdownItem onClick={vieDashboard}>Dashboard</DropdownItem>
+                                            <DropdownItem onClick={viewHome}>View Home</DropdownItem>
                                             <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
                                         </DropdownMenu>}
                                     </ButtonDropdown>

@@ -37,6 +37,7 @@ export default function MediaCard(props) {
         if(qty>0){
             const item={
                 itemName: props.itemName,
+                description : props.description,
                 itemQty:qty,
                 unitPrice:props.price
             }

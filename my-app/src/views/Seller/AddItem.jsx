@@ -10,7 +10,15 @@ const AddItemForm = () => {
     const history = useHistory();
     const {register, handleSubmit} = useForm();
     const handleRegistration = (data) => {
-        API.post('/addItem', data)
+        const userId = localStorage.getItem("userId");
+        const item={
+            itemName : data.itemName,
+            imgURL : data.imgURL,
+            description : data.description,
+            price:data.price,
+            userId : userId
+        }
+        API.post('/addItem', item)
             .then(function (response) {
                 console.log(response);
                 viewDashboard();

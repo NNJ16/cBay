@@ -5,26 +5,34 @@ import {Form, FormGroup, Label, Input, Button} from "reactstrap";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import API from "../components/api";
+const bcrypt = require('bcryptjs');
 
 const LoginForm = () => {
     const history = useHistory();
     const {register, handleSubmit} = useForm();
     const handleRegistration = (data) => {
-        API.post("/login",data).then(res=>{
+        API.post("/login",{email: data.email}).then(res=>{
             console.log(res.data);
             if(res.data.length > 0){
                 const userId = res.data[0].userId;
                 const userType = res.data[0].type;
+                const hashPass = res.data[0].password;
+                const email = res.data[0].email;
                 localStorage.setItem("userType",userType);
                 localStorage.setItem("userId",userId);
-                if(userType==="user"){
-                    viewHome();
-                }else{
-                    viewDashboard();
+                localStorage.setItem("userMail",email);
+                const isValid = bcrypt.compareSync(data.password, hashPass);
+                if(isValid){
+                    if(userType==="user"){
+                        viewHome();
+                        window.location.reload ()
+                    }else{
+                        viewDashboard();
+                        window.location.reload ()
+                    }
                 }
             }
         });
-
     };
     const registerForm =()=>{
         history.push("/register");
