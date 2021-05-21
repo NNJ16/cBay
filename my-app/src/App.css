@@ -1,16 +1,82 @@
 form {
     position: relative;
-    width: 25%;
+    width: 22%;
     margin: 40px auto 100px auto;
     background: #fff;
     padding: 20px;
     border-radius: 7px;
     box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
+
+
+
+.btnback{
+    margin-top: 5px;
+    width: 100px;
+    margin-left: auto;
+    margin-bottom: 20px;
+    height: 45px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: sans-serif;
+    
+
+}
+
+.btnProceed{
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 100px;
+    height: 45px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: sans-serif;
+    
+
+}
+
+
+.btnInline{
+    display: flex;
+}
+
+
 .add-new-listening{
     text-align: right;
 }
+.check-o{
 
+    font-size: 18px;
+}
+.ordersum{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+}
+.order-d{
+    padding-left: 10px;
+  
+}
+
+#order-t{
+   padding-top: 10px;
+   font-size: 20px;
+   margin-top: 20px;
+   font-weight: bold;
+}
+.order{
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-family:  cursive;
+}
+.check-out{
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lobster', cursive;
+}
 .dashboard-header{
     text-align: left;
 }
@@ -103,5 +169,167 @@ header {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    color: gray;
+    color: rgb(14, 33, 68);
+}
+
+.cart-title{
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Lobster', cursive;
+    padding-top: 3rem;
+}
+
+.themed-container{
+        position: relative;
+        width: 98%;
+        margin: 40px auto 100px auto;
+        background: rgb(255, 255, 255);
+        padding: 20px;
+        border-radius: 7px;
+        box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+.OrderList{
+    position: relative;
+    width: 90%;
+    margin: 40px auto 100px auto;
+    background: rgb(255, 255, 255);
+    padding: 10px 50px 10px 50px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+.check{
+    position: relative;
+        width: 100%;
+        margin: 40px auto 100px auto;
+        background: rgb(240, 240, 240);
+        padding: 20px;
+        
+        box-shadow: 0 1px 5px rgb(0, 0, 0);
+}
+
+.item{
+    position: relative;
+        width: 100%;
+        margin: 40px auto 100px auto;
+        background: rgb(228, 228, 228);
+        padding: 20px;
+        
+        box-shadow: 0 1px 5px rgb(0, 0, 0);
+}
+
+#btnTrack{
+    margin-top: 40px;
+    margin-left: 20px;
+    width: 100px;
+    height: 38px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-color: #f05651;
+    background-color:#f05651;
+}
+
+#checkCancel:hover {
+        cursor:pointer;
+        color: #f05651;
+
+       }
+#checkCancel{
+
+    margin-top: 20px;
+    font-size: 15px;
+}
+#textAddress{
+ 
+ 
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.input {
+    width: 80%;
+    padding: 12px;
+    border-radius: 3px;
+    
+  }
+
+  .checkoutform{
+    position: relative;
+    width: 40%;
+    margin: 40px auto 100px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+    
+}
+
+
+.lb{
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bolder;
+
+}
+
+.addressPart{
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 3px;
+    display: inline-block
+}
+
+#radioInput{
+    
+   margin-left: 20px;
+    padding-top: 10px;
+    padding-left: 20px;
+    display: inline-block;
+}
+
+
+.social{
+    padding: 5px;
+    padding-bottom: 10px;
+    border-radius: 10%;
+    transition: 0.8s;
+}
+
+.social:hover{
+    opacity: 0.5;
+    background-color: #000000;
+    color: white;
+}
+.success{
+    position: relative;
+    width: 55%;
+    margin: 40px auto 150px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+.unsuccess{
+    position: relative;
+    width: 55%;
+    margin: 40px auto 200px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+.alert-success{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.alert-danger{
+    padding: 10px;
+    margin-bottom: 20px;
 }

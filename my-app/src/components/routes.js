@@ -8,6 +8,11 @@ import Dashboard from "../views/Seller/Dashboard";
 import AddItemForm from "../views/Seller/AddItem";
 import UpdateItemForm from "../views/Seller/UpdateItem";
 import SellerRegisterForm from "../views/Seller/SellerRegisterForm";
+import OrderItems from '../views/OrderItems';
+import ItemCart from '../views/ItemCart';
+import CheckoutItem from '../views/CheckoutItem';
+import Success from '../views/Success';
+import Unsuccess from '../views/Unsuccess';
 const hist = createBrowserHistory();
 const userType = localStorage.getItem("userType");
 
@@ -20,6 +25,13 @@ const Routes = () => (
         <Route path="/additem" component={userType ==="seller"? AddItemForm: null} />
         <Route path="/updateitem" component={userType ==="seller"? UpdateItemForm: null} />
         <Route exact path="/" component={userType ===null? LoginForm: Home} />
+
+        <Route path="/orderItems" component={userType ==="user"? OrderItems: null} />
+        <Route path="/checkoutItem" component={userType ==="user"? CheckoutItem:null} />
+        <Route path="/itemCart" component={userType ==="user"? ItemCart: null} />
+
+        <Route path="/success" component={userType ==="user"? Success:null} />
+        <Route path="/unsuccess" component={userType ==="user"? Unsuccess: null} />
     </Router>
 );
 

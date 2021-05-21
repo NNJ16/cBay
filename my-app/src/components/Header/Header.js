@@ -38,8 +38,8 @@ const Header = (props) => {
     const toggle = () => setOpen(!dropdownOpen);
     const goToCart = () => {
         if(props.cartItems){
-            localStorage.setItem("cart",props.cartItems);
-            console.log(props.cartItems);
+            localStorage.setItem("cart", JSON.stringify(props.cartItems)); //store cart
+            history.push("/itemCart");
         }
     }
     const menuClick = ()=>{

@@ -38,6 +38,7 @@ export default function MediaCard(props) {
             const item={
                 itemName: props.itemName,
                 itemQty:qty,
+                description:props.description,
                 unitPrice:props.price
             }
             props.addToCart(item);
