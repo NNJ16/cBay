@@ -59,7 +59,9 @@ export default function CustomizedTables() {
         history.push("/dashboard");
     }
 
-        
+    
+    // get Orders from database
+    
     API.get("/getOrders").then(res=>{
         let arr = res.data;
         let y
@@ -83,7 +85,7 @@ export default function CustomizedTables() {
             }
                          console.log(y);
         }
-        setRows(orderList);
+        setRows(orderList);//set Row
        
 
        

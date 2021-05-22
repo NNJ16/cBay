@@ -14,11 +14,14 @@ import Footer from "../components/Footer/Footer";
                 let year = new Date().getFullYear();
           
         
-            const cart1 = JSON.parse(localStorage.getItem("cart")); //get them back
+            const cart1 = JSON.parse(localStorage.getItem("cart")); //get cart item back
 
             const tot = localStorage.getItem("total");
             console.log(date + '-' + month + '-' + year);
 
+
+
+            //add orders to backend
     
     const CheckoutForm = () => {const history = useHistory();
     const {register, handleSubmit} = useForm();
