@@ -5,6 +5,7 @@ import {Form, FormGroup, Label, Input, Button} from "reactstrap";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import API from "../../components/api";
+const bcrypt = require('bcryptjs');
 
 const RegisterForm = () => {
     const history = useHistory();
@@ -12,7 +13,7 @@ const RegisterForm = () => {
     const handleRegistration = (data) => {const user ={
         name : data.name,
         email : data.email,
-        password: data.password,
+        password: bcrypt.hashSync(data.password, bcrypt.genSaltSync()),
         phone: data.phone,
         type:"seller"
     }

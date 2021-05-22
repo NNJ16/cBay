@@ -30,9 +30,25 @@ export default function Home() {
         cart.push(item);
         setCount(cart.length);
     }
+    const findItems= (itemName)=>{
+        API.post('/search', {itemName : itemName})
+            .then(function (res) {
+                let arr = res.data;
+                let i;
+                let list=[];
+                for (i = 0; i < arr.length; i++) {
+                    list.push(arr[i])
+                }
+                setItems(list);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     return (
         <div>
-            <Header count={count} cartItems={cart}/>
+            <Header findItems={findItems} count={count} cartItems={cart}/>
             <div className="itemList">
                 <Grid container spacing={1}>
                     {itemList.map((item) => (

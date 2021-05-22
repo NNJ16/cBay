@@ -234,8 +234,9 @@ export default function CustomizedTables() {
 
         </div>
         
-
+<Footer/>
 
 
     </div> );
+
 }

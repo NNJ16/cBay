@@ -96,7 +96,7 @@ export default function CustomizedTables() {
    
 
     <div>
-
+<Header/>
     <div className="OrderList">
         <h1 className="cart-title">Order History</h1>
         
@@ -153,7 +153,7 @@ export default function CustomizedTables() {
     </div>
     
 
-
+<Footer/>
 
 </div> );
 }

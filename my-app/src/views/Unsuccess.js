@@ -18,7 +18,7 @@ const Unsuccess = () => {
                 <p className="message">
                 <b>Please check the details again that you have entered </b><br /><br />
 
-                        There is error while placing the order. Plese try again. If you have any Inquiry, please use the telephone number or email address listed below to talk to one of our staff members. 
+                        There is an error while placing the order. Please try again. If you have any Inquiry, please use the telephone number or email address listed below to talk to one of our staff members. 
                         <br /><br />
                         We will make sure to reply your message as soon as possible.
                         <br /><br />

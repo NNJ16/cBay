@@ -49,7 +49,7 @@ export default function CustomizedTables() {
     const history = useHistory();
     const classes = useStyles();
     const [rows,setRows] = useState([]);
-
+    const userId = localStorage.getItem("userId");
     const submit = (itemID) => {
         confirmAlert({
             title: 'Confirm to Delete',
@@ -69,8 +69,7 @@ export default function CustomizedTables() {
             ]
         });
     };
-
-    API.get("/items").then(res=>{
+    API.post("/items",{userId: userId}).then(res=>{
         let arr = res.data;
         let i;
         for (i = 0; i < arr.length; i++) {
@@ -78,6 +77,7 @@ export default function CustomizedTables() {
         }
         setRows(itemList);
     });
+
     const deleteItem=(itemID)=>{
         API.delete("/deleteItem",({data:{itemID: itemID}})).then(function (response) {
             console.log(response);

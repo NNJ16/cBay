@@ -81,6 +81,7 @@ import Footer from "../components/Footer/Footer";
 
     return (
         <div>
+            <Header/>
             <div className="checkout">
                 <Form className="checkoutform" onSubmit={handleSubmit(handleCheckout)}>
                     <h1 className="reg-title">Checkout</h1>
@@ -124,6 +125,7 @@ import Footer from "../components/Footer/Footer";
                     
                 </Form>
             </div>
+            <Footer/>
         </div>
     );
 };
